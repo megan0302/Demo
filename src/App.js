@@ -1,11 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ToggleButton from './ToggleButton';
 
 class App extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      light: false,
+    };
+
+    this.onToggleButtonClick = this.onToggleButtonClick.bind(this);
+  }
+
+  onToggleButtonClick() {
+    this.setState({
+      light: !this.state.light,
+    })
+  }
+
   render() {
     return (
-      null
+      <ToggleButton
+        isClicked={this.state.light}
+        onClick={this.onToggleButtonClick}
+      />
     );
   }
 }
